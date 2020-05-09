@@ -3,37 +3,49 @@ var pauzaAlarm = false;
 function pauza() {
   // pauseAlarm -> true
   // !pauseAlarm -> false
+
+  if (!pauzaAlarm) {
+    clearInterval(countdownInterval);
+  } else {
+    countdownInterval = setInterval(countdown, 1000);
+  }
+
   pauzaAlarm = !pauzaAlarm;
 }
-
+var alarmInput;
+var timeRemainingUpdate;
 function setAlarm() {
   pauzaAlarm = false;
 
   // 1. When the `Set Alarm` button is clicked, get the value of the input field
   // get
-  var alarmInput = document.getElementById("alarmSet").value;
+  alarmInput = document.getElementById("alarmSet").value;
   console.log("alarmInput: ", alarmInput);
 
   // 2. When you have the input field value, set the title to the correct value
   // set
-  var timeRemainingUpdate = document.getElementById("timeRemaining");
+  timeRemainingUpdate = document.getElementById("timeRemaining");
   timeRemainingUpdate.innerHTML = "Time remaining: " + alarmInput;
 
   // 3. Work out how to update the `Time Remaining` title every second
 
-  setInterval(() => {
-    if (pauzaAlarm == false && alarmInput > 0) {
-      alarmInput -= 1;
-      timeRemainingUpdate.innerHTML = "Time remaining: " + alarmInput;
-      // 4. When the remaining time left is 0, play the alarm sound
-      if (alarmInput === 0) {
-        playAlarm();
-        document.querySelector("body").style.backgroundColor = "orange";
-      }
-    }
-  }, 1000);
+  // - Could you add `pause` functionality so that the count down stops and then you restart it later?
+  clearInterval(countdownInterval);
+  countdownInterval = setInterval(countdown, 1000);
 }
-
+var countdownInterval;
+function countdown() {
+  if (alarmInput > 0) {
+    alarmInput -= 1;
+    timeRemainingUpdate.innerHTML = "Time remaining: " + alarmInput;
+    // 4. When the remaining time left is 0, play the alarm sound
+    console.log(alarmInput);
+    if (alarmInput === 0) {
+      playAlarm();
+      document.querySelector("body").style.backgroundColor = "orange";
+    }
+  }
+}
 // DO NOT EDIT BELOW HERE
 
 var audio = new Audio("alarmsound.mp3");
