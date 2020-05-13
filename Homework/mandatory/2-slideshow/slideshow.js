@@ -20,7 +20,7 @@ function currentSlide(n) {
 
 function showSlides(n) {
   var mySlides = document.getElementsByClassName("mySlides");
-  if (n > 3) {
+  if (n > 4) {
     slideIndex = 1;
   }
   if (n < 1) {
@@ -90,6 +90,24 @@ function setup() {
   document.querySelector(".stop").addEventListener("click", () => {
     stop();
   });
+
+  var titleI = document.querySelector("h1");
+  titleI.style.color = "crimson";
+  titleI.style.textAlign = "center";
+  titleI.style.paddingTop = "50px";
+
+  var titleII = document.querySelector("span");
+  titleII.style.color = "orange";
+  var captions = document.querySelectorAll(".text");
+  for (var i = 0; i < captions.length; i++) {
+    captions[i].style.fontFamily = "Montserrat";
+    captions[i].style.fontWeight = "thin";
+    captions[i].style.color = "green";
+
+    var buttonMenu = document.querySelector("#buttonMenu");
+    buttonMenu.style.textAlign = "center";
+    buttonMenu.style.paddingTop = "20px";
+  }
 }
 
 window.onload = setup;
