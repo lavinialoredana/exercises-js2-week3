@@ -23,7 +23,40 @@
         <p class="alert alert-info">Number of movies: <span id="movies-number"></span></p>
       </div>
     </div>
+
+ <!--  
+  Form insertion:
+  The form should have :
+  4 input text fields, one for each property of your movie object: Movie Title, Movie Director, Movie Type, Movie Watched: true/false? 
+  a "save" button
+-->
+     <form>
+
+    <div class="form-group">
+     <label for="movieTitle">Title</label>
+      <input type="textbox" class="form-control" id="movieTitle" placeholder="Enter movie title">
+    </div>
+
+    <div class = "form-group" >
+     <label for=" movieDirector"> Director</label>
+     <input type="textbox" class= "form-control" id="movieDirector" placeholder="Enter movie director" >
+    </div>
+
+    <div class = "form-group" >
+      <label for=" movieType"> Type</label>
+      <input type="textbox" class= "form-control" id="movieType" placeholder="Enter movie type" >
+     </div>
+
+     <div class = "form-group" >
+      <label for=" movieWatched"> Watched?</label>
+      <input type="textbox" class= "form-control" id="movieWatched" placeholder="Enter true/false wether you have watched the movie" >
+     </div>
+
+      <button id="saveButton" type="button" class="btn btn-primary">Save</button>	
+  </form>
     <script src="exercise.js"></script>
 </body>
 
 </html>
+
+

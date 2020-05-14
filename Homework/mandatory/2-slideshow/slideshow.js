@@ -24,7 +24,7 @@ function showSlides(n) {
     slideIndex = 1;
   }
   if (n < 1) {
-    slideIndex = 3;
+    slideIndex = 4;
   }
   mySlides[0].style.display = "none";
   mySlides[1].style.display = "none";
